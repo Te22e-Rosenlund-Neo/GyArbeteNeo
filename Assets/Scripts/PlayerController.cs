@@ -11,9 +11,13 @@ public class jumptest : MonoBehaviour
     float MoveDirection;
 
     public Rigidbody rb;
+    RaycastHit hit;
 
     bool IsGrounded(){
         return Physics.Raycast(transform.position, Vector3.down, GroundDistance);
+    }
+    private void Start(){
+        
     }
 
     private void Update() {
