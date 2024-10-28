@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ArrowScript : MonoBehaviour
 {
-     Transform target;
+     public Transform target;
 
-    private void Awake() {
-        
+    private void Start() {
         target = GameObject.Find("Player").transform;
+
         transform.LookAt(target);
+       
     }
 
     private void Update() {
     
-        transform.forward = transform.forward*2;
-
+        // transform.position = Vector3.MoveTowards(transform.position, target.position, float.MaxValue);
 
  }
 }
