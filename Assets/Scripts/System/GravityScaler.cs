@@ -16,12 +16,14 @@ public class GravityScaler : MonoBehaviour
 
     // Update is called once per frame
     private void OnEnable() {
-        foreach(Rigidbody Rb in Bodies){
-            Rb.useGravity = false;
-        }
+        
+
+
     }
     void Update()
     {
+
+        Bodies = new List<Rigidbody>(FindObjectsByType<Rigidbody>(FindObjectsSortMode.None));
 
         Vector3 gravity = GlobalGravity * DefaultGravityScale * Vector3.up;
 

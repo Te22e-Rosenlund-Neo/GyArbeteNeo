@@ -5,38 +5,45 @@ using UnityEngine;
 
 public class Skeleton : MonoBehaviour
 {
-        public Transform Player;
-        public GameObject Arrow;
+    public Transform Player;
+    public GameObject Arrow;
+    Quaternion FaceLeft = new(0,180,0,0);
+    Quaternion FaceRight = new(0,0,0,0);
 
-        
-    private void LookAt(Transform Target){
+    public float turnspeed;
+
+    private void LookAt(Transform Target)
+    {
 
         float difference = Target.position.z - transform.position.z;
 
-       if(difference < 0){
-        transform.rotation = new Quaternion(0,180,0,0);
-       }
-       else if(difference > 0){
-        transform.rotation = new Quaternion(0,0,0,0);
-       }
-    }
-
-    private void Shoot(){
-        Instantiate(Arrow);
-    }   
-
-    void Update(){
-
-        LookAt(Player);
-
-        if(Input.GetKeyDown(KeyCode.P)){
-            Shoot();
+        if (difference < 0)
+        {
+            transform.rotation = Quaternion.Lerp(Quaternion.identity, FaceLeft, turnspeed);
+        }
+        else if (difference > 0)
+        {
+           transform.rotation = Quaternion.Lerp(Quaternion.identity, FaceRight, turnspeed);
         }
 
     }
 
+    private void Shoot()
+    {
+        Instantiate(Arrow);
+    }
 
+    void Update()
+    {
 
+        LookAt(Player);
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Shoot();
+        }
+
+    }
 
 
 }

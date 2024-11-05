@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class jumptest : MonoBehaviour
@@ -7,14 +8,15 @@ public class jumptest : MonoBehaviour
     public float JumpForce;
     public float GroundDistance = 0.5f;
 
+    public Transform RayCastPoint;
+
     public float MoveSpeed;
     float MoveDirection;
 
     public Rigidbody rb;
-    RaycastHit hit;
-
     bool IsGrounded(){
-        return Physics.Raycast(transform.position, Vector3.down, GroundDistance);
+        // return Physics.Raycast(transform.position, Vector3.down, GroundDistance);
+        return Physics.Raycast(new Ray(transform.position + new Vector3(0,1,0), Vector3.down), GroundDistance);
     }
     private void Start(){
         
@@ -22,7 +24,7 @@ public class jumptest : MonoBehaviour
 
     private void Update() {
 
-        
+        Debug.DrawRay(transform.position+ new Vector3(0,1,0), Vector3.down, Color.red);
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded() == true){
             rb.velocity = new Vector3(rb.velocity.x,1,rb.velocity.z) * JumpForce;
         }
