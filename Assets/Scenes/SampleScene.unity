@@ -1132,7 +1132,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696114553}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7018044ec41d4a44a9c7c0d0404af252, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2332,7 +2332,7 @@ MonoBehaviour:
   player: {fileID: 1705122740}
   speed: 1
   PushForce: 15
-  UpForce: 1
+  UpForce: 0.5
 --- !u!4 &1114051266
 Transform:
   m_ObjectHideFlags: 0
@@ -3518,7 +3518,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705122739}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7018044ec41d4a44a9c7c0d0404af252, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
