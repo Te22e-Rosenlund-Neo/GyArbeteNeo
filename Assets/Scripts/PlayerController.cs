@@ -10,6 +10,8 @@ public class jumptest : MonoBehaviour
 
     public Transform RayCastPoint;
 
+    public int HP = 2;
+
     public float MoveSpeed;
     public int disabledMove = 1;
 // 1 = able to move, 0 = unable to move

@@ -49,6 +49,7 @@ public class Slime : MonoBehaviour
         private void OnCollisionExit(Collision other) {
             if(other.transform == player){
                 other.transform.GetComponent<jumptest>().disabledMove = 1;
+                other.transform.GetComponent<jumptest>().HP -= 1;
             }
         }
         private void FixedUpdate() {

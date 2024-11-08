@@ -2049,7 +2049,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -3587,6 +3587,7 @@ MonoBehaviour:
   JumpForce: 18
   GroundDistance: 1
   RayCastPoint: {fileID: 0}
+  HP: 0
   MoveSpeed: 8
   disabledMove: 1
   rb: {fileID: 1705122742}
