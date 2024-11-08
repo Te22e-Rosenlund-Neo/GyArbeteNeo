@@ -8,6 +8,11 @@ public class Slime : MonoBehaviour
     public float speed;
     public float PushForce;
     public float UpForce;
+    Vector3 PushDirection;
+    Vector3 Push;
+    bool StartPush = false;
+    float timerforpush;
+    Rigidbody PRb;
 
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player").transform;  
@@ -27,16 +32,35 @@ public class Slime : MonoBehaviour
         private void OnCollisionEnter(Collision other) {
             if(other.transform == player){
 
-                Rigidbody PRb = other.gameObject.GetComponent<Rigidbody>();
+                PRb = other.gameObject.GetComponent<Rigidbody>();
 
-                Vector3 PushDirection = (other.transform.position - transform.position).normalized;
+                other.transform.GetComponent<jumptest>().disabledMove = 0;
 
-                Vector3 Push = new Vector3(PushDirection.x, UpForce, PushDirection.z) * PushForce;
+                PushDirection = (other.transform.position - transform.position).normalized;
 
+                Push = new Vector3(PushDirection.x, UpForce, PushDirection.z) * PushForce;
+
+                StartPush = true;
+                timerforpush = 0.2f;
+
+
+            }
+        }
+        private void OnCollisionExit(Collision other) {
+            if(other.transform == player){
+                other.transform.GetComponent<jumptest>().disabledMove = 1;
+            }
+        }
+        private void FixedUpdate() {
+            if(StartPush == true && timerforpush > 0){
                 PRb.AddForce(Push, ForceMode.Impulse);
 
+            
 
+            }
 
+            if(timerforpush > 0){
+                timerforpush -= Time.deltaTime;
             }
         }
 

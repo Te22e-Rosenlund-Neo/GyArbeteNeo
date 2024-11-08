@@ -2331,8 +2331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1705122740}
   speed: 1
-  PushForce: 15
-  UpForce: 0.5
+  PushForce: 8
+  UpForce: 0.2
 --- !u!4 &1114051266
 Transform:
   m_ObjectHideFlags: 0
@@ -3588,6 +3588,7 @@ MonoBehaviour:
   GroundDistance: 1
   RayCastPoint: {fileID: 0}
   MoveSpeed: 8
+  disabledMove: 1
   rb: {fileID: 1705122742}
 --- !u!114 &1705122745
 MonoBehaviour:

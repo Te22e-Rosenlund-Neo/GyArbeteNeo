@@ -11,7 +11,8 @@ public class jumptest : MonoBehaviour
     public Transform RayCastPoint;
 
     public float MoveSpeed;
-    float MoveDirection;
+    public int disabledMove = 1;
+// 1 = able to move, 0 = unable to move
 
     public Rigidbody rb;
     bool IsGrounded(){
@@ -32,7 +33,8 @@ public class jumptest : MonoBehaviour
         float MoveDirection = Input.GetAxisRaw("Horizontal");
 
 
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, MoveDirection*MoveSpeed);
+        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, MoveDirection*MoveSpeed*disabledMove);
 
     }
+    
 }
