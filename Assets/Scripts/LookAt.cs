@@ -12,7 +12,7 @@ public class LookAt : MonoBehaviour
 
     private void LookTowards(Transform Target)
     {
-
+        
         float difference = Target.position.z - transform.position.z;
 
         if (difference < 0)
