@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class ArrowScript : MonoBehaviour
 {
-     public Transform target;
 
     private void Start() {
-        target = GameObject.Find("Player").transform;
 
-        transform.LookAt(target);
+        // transform.LookAt(target);
        
     }
 

@@ -9,18 +9,20 @@ public class Skeleton : MonoBehaviour
 
     public Animator skelly;
     public Animator bow;
-    public Animator arrow;
+    
 
     // REST
     public Transform Player;
-    public GameObject Arrow;
+    public GameObject ArrowAnimation;
+    public Transform ArrowSpawnLocation;
+
     private IEnumerator Shoot(){
+
         skelly.SetBool("Shoot", true);
         bow.SetBool("Shoot", true);
-        arrow.SetBool("Shoot", true);
-        yield return new WaitForSeconds(0.8f);
+        Instantiate(ArrowAnimation, ArrowSpawnLocation);
+        yield return new WaitForSeconds(0.1f);
         
-        Instantiate(Arrow);
         skelly.SetBool("Shoot", false);
         bow.SetBool("Shoot", false);
 

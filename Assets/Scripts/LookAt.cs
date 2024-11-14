@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class LookAt : MonoBehaviour
 {
-    [SerializeField] Quaternion FaceLeft1;
-    [SerializeField] Quaternion Faceright1;
+    [SerializeField] Quaternion FaceLeft = new(0,180,0,0);
+    [SerializeField] Quaternion Faceright = new(0,0,0,0);
     public Transform target;
-    Quaternion FaceLeft = new(0,180,0,0);
-    Quaternion FaceRight = new(0,0,0,0);
     float turnspeed = 0.1f;
 
     private void LookTowards(Transform Target)
@@ -18,11 +16,11 @@ public class LookAt : MonoBehaviour
 
         if (difference < 0)
         {
-            transform.rotation = Quaternion.Lerp(Quaternion.identity, FaceLeft1, turnspeed);
+            transform.rotation = Quaternion.Lerp(Quaternion.identity, FaceLeft, turnspeed);
         }
         else if (difference > 0)
         {
-           transform.rotation = Quaternion.Lerp(Quaternion.identity, Faceright1, turnspeed);
+           transform.rotation = Quaternion.Lerp(Quaternion.identity, Faceright, turnspeed);
         }
 
     }
