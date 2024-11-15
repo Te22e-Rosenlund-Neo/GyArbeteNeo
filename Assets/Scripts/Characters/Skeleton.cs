@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -15,12 +16,16 @@ public class Skeleton : MonoBehaviour
     public Transform Player;
     public GameObject ArrowAnimation;
     public Transform ArrowSpawnLocation;
+    public Transform target;
 
     private IEnumerator Shoot(){
 
         skelly.SetBool("Shoot", true);
         bow.SetBool("Shoot", true);
-        Instantiate(ArrowAnimation, ArrowSpawnLocation);
+        var e = Instantiate(ArrowAnimation, ArrowSpawnLocation.position, Quaternion.identity);
+        e.transform.LookAt(transform.forward*10);
+        e.GetComponent<arrowDisapear>().SetString(ArrowSpawnLocation);
+        // e.transform.position = ArrowSpawnLocation.localPosition;
         yield return new WaitForSeconds(0.1f);
         
         skelly.SetBool("Shoot", false);
@@ -36,9 +41,13 @@ public class Skeleton : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             StartCoroutine(Shoot());
+            // GameObject e = Instantiate(ArrowAnimation, ArrowSpawnLocation.position, Quaternion.identity);
         }
 
     }
-
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(ArrowSpawnLocation.position, 0.1f);
+    }
 
 }
