@@ -24,7 +24,9 @@ public class Skeleton : MonoBehaviour
         bow.SetBool("Shoot", true);
         var e = Instantiate(ArrowAnimation, ArrowSpawnLocation.position, Quaternion.identity);
         e.transform.LookAt(transform.forward*10);
+        e.transform.rotation = transform.rotation;
         e.GetComponent<arrowDisapear>().SetString(ArrowSpawnLocation);
+        e.GetComponent<arrowDisapear>().SetTarget(target);
         // e.transform.position = ArrowSpawnLocation.localPosition;
         yield return new WaitForSeconds(0.1f);
         
