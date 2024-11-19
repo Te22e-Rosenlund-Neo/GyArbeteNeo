@@ -18,6 +18,10 @@ public class Skeleton : MonoBehaviour
     public Transform ArrowSpawnLocation;
     public Transform target;
 
+    float timebetweenshots = 1f;
+
+    public int hp = 2;
+
     private IEnumerator Shoot(){
 
         skelly.SetBool("Shoot", true);
@@ -37,19 +41,27 @@ public class Skeleton : MonoBehaviour
 
     void Update()
     {
-
-       
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
+        if(Vector3.Distance(Player.position, transform.position) < 8 && timebetweenshots <= 0){
             StartCoroutine(Shoot());
-            // GameObject e = Instantiate(ArrowAnimation, ArrowSpawnLocation.position, Quaternion.identity);
+            timebetweenshots = 1f;
+        }
+       
+        if(hp <= 0){
+            Destroy(gameObject);
         }
 
-    }
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(ArrowSpawnLocation.position, 0.1f);
-    }
 
+
+        // if (Input.GetKeyDown(KeyCode.P))
+        // {
+        //     StartCoroutine(Shoot());
+        //     // GameObject e = Instantiate(ArrowAnimation, ArrowSpawnLocation.position, Quaternion.identity);
+        // }
+        timebetweenshots -= Time.deltaTime;
+    }
+    // private void OnDrawGizmos() {
+    //     Gizmos.color = Color.green;
+    //     Gizmos.DrawSphere(ArrowSpawnLocation.position, 0.1f);
+    // }
+    
 }

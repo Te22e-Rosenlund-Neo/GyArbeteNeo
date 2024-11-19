@@ -26,8 +26,11 @@ public class swordSwing : MonoBehaviour
 
      private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy")){
-            Destroy(other.gameObject);
+        if(other.CompareTag("Slime")){
+            other.transform.GetComponent<Slime>().hp -= 1;
+        }
+        if(other.CompareTag("Skelly")){
+            other.transform.GetComponent<Skeleton>().hp -= 1;
         }
     }
 }

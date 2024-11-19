@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7580811733143937049}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Slime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,6 +53,7 @@ MonoBehaviour:
   speed: 1
   PushForce: 8
   UpForce: 0.2
+  hp: 3
 --- !u!54 &3160850934068018151
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -92,6 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d007d0d25d225fb4d8b32fc5f41ddbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FaceLeft: {x: 0, y: 180, z: 0, w: 0}
+  Faceright: {x: 0, y: 0, z: 0, w: 0}
   target: {fileID: 0}
 --- !u!65 &7580811733143937049
 BoxCollider:

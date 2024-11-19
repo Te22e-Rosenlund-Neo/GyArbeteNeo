@@ -14,6 +14,8 @@ public class Slime : MonoBehaviour
     float timerforpush;
     Rigidbody PRb;
 
+    public int hp = 3;
+
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player").transform;  
         transform.position = new Vector3(4.319687f, transform.position.y, transform.position.z);
@@ -23,10 +25,14 @@ public class Slime : MonoBehaviour
     
     float move = Time.deltaTime * speed;
 
-    if(Vector3.Distance(player.position, transform.position) < 10)
+    if(Vector3.Distance(player.position, transform.position) < 6)
 
     transform.position = new Vector3(transform.position.x, transform.position.y, Vector3.MoveTowards(transform.position,player.position, move).z);
     
+    if(hp <= 0){
+        Destroy(gameObject);
+    }
+
     }
 
         private void OnCollisionEnter(Collision other) {

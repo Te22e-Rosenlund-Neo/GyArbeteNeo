@@ -6429,7 +6429,7 @@ GameObject:
   - component: {fileID: 3851570557000367377}
   m_Layer: 0
   m_Name: SkeletonAnimSKel
-  m_TagString: Untagged
+  m_TagString: Skelly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6516,6 +6516,7 @@ MonoBehaviour:
   ArrowAnimation: {fileID: 2155548743125101069, guid: d0df3b0a359a2b843b55d4d69d23092e, type: 3}
   ArrowSpawnLocation: {fileID: 5767505726956197742}
   target: {fileID: 7401396192136857581}
+  hp: 2
 --- !u!114 &6425539682566065258
 MonoBehaviour:
   m_ObjectHideFlags: 0
