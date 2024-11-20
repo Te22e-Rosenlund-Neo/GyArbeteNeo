@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class jumptest : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class jumptest : MonoBehaviour
     public float GroundDistance = 0.5f;
 
     public Transform RayCastPoint;
-
+    public TextMeshPro text;
     public int HP = 3;
 
     public float MoveSpeed;
@@ -26,7 +28,7 @@ public class jumptest : MonoBehaviour
     }
 
     private void Update() {
-
+        text.text = HP.ToString();
         Debug.DrawRay(transform.position+ new Vector3(0,1,0), Vector3.down, Color.red);
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded() == true){
             rb.velocity = new Vector3(rb.velocity.x,1,rb.velocity.z) * JumpForce;

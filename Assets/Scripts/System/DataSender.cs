@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 
 
@@ -34,6 +35,8 @@ public class DataSender : MonoBehaviour
             if(www.result == UnityWebRequest.Result.Success){
                 Debug.Log("Data sent successfully");
                 PlayerPrefs.SetInt("TimesPlayer", 1);
+                SceneManager.LoadScene(2);
+
             }else{
                 Debug.LogError("An error occurred:" + www.error);
             }

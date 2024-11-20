@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Skeleton : MonoBehaviour
 {
     // FOR ANIMATION
@@ -17,7 +18,7 @@ public class Skeleton : MonoBehaviour
     public GameObject ArrowAnimation;
     public Transform ArrowSpawnLocation;
     public Transform target;
-
+    public TextMeshPro text;
     float timebetweenshots = 1f;
 
     public int hp = 2;
@@ -41,10 +42,13 @@ public class Skeleton : MonoBehaviour
 
     void Update()
     {
-        if(Vector3.Distance(Player.position, transform.position) < 8 && timebetweenshots <= 0){
+        if(Vector3.Distance(Player.position, transform.position) < 10 && timebetweenshots <= 0){
             StartCoroutine(Shoot());
-            timebetweenshots = 1f;
+            timebetweenshots = 2f;
         }
+
+        text.text = hp.ToString();
+
        
         if(hp <= 0){
             Destroy(gameObject);

@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playertag: Player
   speed: 20
+  target: {fileID: 0}
 --- !u!65 &8329820933524654061
 BoxCollider:
   m_ObjectHideFlags: 0

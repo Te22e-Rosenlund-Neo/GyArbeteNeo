@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Slime : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class Slime : MonoBehaviour
     bool StartPush = false;
     float timerforpush;
     Rigidbody PRb;
-
+    public TextMeshPro text;
     public int hp = 3;
 
     private void Awake() {
@@ -25,14 +27,14 @@ public class Slime : MonoBehaviour
     
     float move = Time.deltaTime * speed;
 
-    if(Vector3.Distance(player.position, transform.position) < 6)
+    if(Vector3.Distance(player.position, transform.position) < 8){
 
     transform.position = new Vector3(transform.position.x, transform.position.y, Vector3.MoveTowards(transform.position,player.position, move).z);
-    
+    }
     if(hp <= 0){
         Destroy(gameObject);
     }
-
+        text.text = hp.ToString();
     }
 
         private void OnCollisionEnter(Collision other) {
