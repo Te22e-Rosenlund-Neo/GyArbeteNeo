@@ -19076,7 +19076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a3d3bcb8f70964baa6f09e73b8a940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 1000
+  JumpForce: 1500
   GroundDistance: 1
   RayCastPoint: {fileID: 0}
   text: {fileID: 248138788}
