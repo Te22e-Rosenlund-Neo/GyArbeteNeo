@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class ball : MonoBehaviour
 {
     public List<Button> buttons;
+    public TextMeshProUGUI test;
     void Awake()
     {
         foreach (var button in buttons){
             button.gameObject.SetActive(false);
+            test.gameObject.SetActive(false);
         }
     }
 
@@ -19,6 +22,7 @@ public class ball : MonoBehaviour
         other.transform.GetComponent<jumptest>().enabled = false;
         foreach (var button in buttons){
             button.gameObject.SetActive(true);
+            test.gameObject.SetActive(false);
         }
     }
 }

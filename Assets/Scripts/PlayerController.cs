@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class jumptest : MonoBehaviour
@@ -31,13 +32,18 @@ public class jumptest : MonoBehaviour
         text.text = HP.ToString();
         Debug.DrawRay(transform.position+ new Vector3(0,1,0), Vector3.down, Color.red);
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded() == true){
-            rb.velocity = new Vector3(rb.velocity.x,1,rb.velocity.z) * JumpForce;
+            rb.velocity = new Vector3(rb.velocity.x,1,rb.velocity.z) * JumpForce * Time.deltaTime;
         }
 
         float MoveDirection = Input.GetAxisRaw("Horizontal");
 
 
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, MoveDirection*MoveSpeed*disabledMove);
+ 
+        if(HP <= 0){
+            transform.position = new Vector3(4.319687f, 15f, -0.06f);
+            HP += 2;
+        }
 
     }
     

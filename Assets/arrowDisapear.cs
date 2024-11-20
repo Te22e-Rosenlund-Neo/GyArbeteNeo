@@ -49,17 +49,18 @@ public class arrowDisapear : MonoBehaviour
 
 
 
-    // public void OnTriggerEnter(Collider other) {
-    //     if(other.transform.tag == playertag){
-    //         other.gameObject.GetComponent<jumptest>().HP -= 1;
-    //     }
-    // }
-    private void OnCollisionEnter(Collision other) {
+    public void OnTriggerEnter(Collider other) {
         if(other.transform.tag == playertag){
             other.gameObject.GetComponent<jumptest>().HP -= 1;
             Destroy(this.gameObject);
         }
     }
+    // private void OnCollisionEnter(Collision other) {
+    //     if(other.transform.tag == playertag){
+    //         other.gameObject.GetComponent<jumptest>().HP -= 1;
+    //         Destroy(this.gameObject);
+    //     }
+    // }
 
 
 
