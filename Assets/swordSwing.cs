@@ -14,8 +14,7 @@ public class swordSwing : MonoBehaviour
         StartCoroutine(SwordSwing());
     }
 
-    void Update(){
-    }
+
     IEnumerator SwordSwing(){
     
     

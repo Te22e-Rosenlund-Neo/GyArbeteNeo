@@ -19097,7 +19097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sword: {fileID: 6578320358497378274, guid: cc10a291ddb14154f81fdb9d5f8a1b7b, type: 3}
-  AttackSpeed: 2
+  AttackSpeed: 1.5
 --- !u!23 &1705122746
 MeshRenderer:
   m_ObjectHideFlags: 0
