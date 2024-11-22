@@ -22,7 +22,7 @@ public class ball : MonoBehaviour
         other.transform.GetComponent<jumptest>().enabled = false;
         foreach (var button in buttons){
             button.gameObject.SetActive(true);
-            test.gameObject.SetActive(false);
+            test.gameObject.SetActive(true);
         }
     }
 }
