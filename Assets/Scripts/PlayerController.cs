@@ -15,6 +15,8 @@ public class jumptest : MonoBehaviour
     public TextMeshPro text;
     public int HP = 3;
 
+    public Transform model;
+
     public float MoveSpeed;
     public int disabledMove = 1;
 // 1 = able to move, 0 = unable to move
@@ -29,14 +31,25 @@ public class jumptest : MonoBehaviour
     }
 
     private void Update() {
+
+        
+
+
+
         text.text = HP.ToString();
         Debug.DrawRay(transform.position+ new Vector3(0,1,0), Vector3.down, Color.red);
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded() == true){
-            rb.velocity = new Vector3(rb.velocity.x,1,rb.velocity.z) * JumpForce * Time.deltaTime;
+            rb.velocity = new Vector3(rb.velocity.x,1,rb.velocity.z) * JumpForce * Time.fixedDeltaTime;
         }
 
         float MoveDirection = Input.GetAxisRaw("Horizontal");
 
+        if(MoveDirection == 1){
+            model.rotation = Quaternion.Euler(-90,0,0);
+        }
+        if(MoveDirection == -1){
+            model.rotation = Quaternion.Euler(-90,180,0);
+        }
 
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, MoveDirection*MoveSpeed*disabledMove);
  
@@ -44,7 +57,7 @@ public class jumptest : MonoBehaviour
             transform.position = new Vector3(4.319687f, 15f, -0.06f);
             HP += 2;
         }
-
     }
+    
     
 }

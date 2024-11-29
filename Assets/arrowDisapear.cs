@@ -23,6 +23,10 @@ public class arrowDisapear : MonoBehaviour
         }else if(timer < 0){
             Debug.Log(new Vector3(transform.position.x, transform.position.y, transform.forward.z*100));
             transform.position = Vector3.MoveTowards(transform.position,target.position, speed*Time.deltaTime);
+            
+            if(timer <= -5){
+                Destroy(gameObject);
+            }
             if(transform.position == target.position){
                 Destroy(gameObject);
             }
