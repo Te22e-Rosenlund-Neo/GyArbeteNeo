@@ -39,7 +39,8 @@ public class jumptest : MonoBehaviour
         text.text = HP.ToString();
         Debug.DrawRay(transform.position+ new Vector3(0,1,0), Vector3.down, Color.red);
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded() == true){
-            rb.velocity = new Vector3(rb.velocity.x,1,rb.velocity.z) * JumpForce * Time.fixedDeltaTime;
+            // rb.velocity = new Vector3(rb.velocity.x,1,rb.velocity.z) * JumpForce * Time.fixedDeltaTime;
+            rb.AddForce(rb.velocity.x, 1 * JumpForce, rb.velocity.z);
         }
 
         float MoveDirection = Input.GetAxisRaw("Horizontal");

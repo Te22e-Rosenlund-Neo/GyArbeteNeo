@@ -15,14 +15,19 @@ public class GravityScaler : MonoBehaviour
 
 
     // Update is called once per frame
-    private void OnEnable() {
-        
+    // void Update()
+    // {
 
+    //     Bodies = new List<Rigidbody>(FindObjectsByType<Rigidbody>(FindObjectsSortMode.None));
 
-    }
-    void Update()
-    {
+    //     Vector3 gravity = GlobalGravity * DefaultGravityScale * Vector3.up;
 
+    //     foreach(Rigidbody body in Bodies){
+    //         body.AddForce(gravity, ForceMode.Acceleration);
+    //     }
+    // }
+
+    private void FixedUpdate() {
         Bodies = new List<Rigidbody>(FindObjectsByType<Rigidbody>(FindObjectsSortMode.None));
 
         Vector3 gravity = GlobalGravity * DefaultGravityScale * Vector3.up;
@@ -30,11 +35,5 @@ public class GravityScaler : MonoBehaviour
         foreach(Rigidbody body in Bodies){
             body.AddForce(gravity, ForceMode.Acceleration);
         }
-
-
-
-        
-        
-
     }
 }
