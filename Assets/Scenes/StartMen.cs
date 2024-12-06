@@ -10,11 +10,11 @@ public class StartMen : MonoBehaviour
     
     public TextMeshProUGUI text;
     public void startgame(){
-        if(PlayerPrefs.GetInt("TimesPlayer") == 0){
+        // if(PlayerPrefs.GetInt("TimesPlayer") == 0){
             SceneManager.LoadScene(1);
-        }else{
-            text.text = "You cant play more than once!";
-        }
+        // }else{
+        //     text.text = "You cant play more than once!";
+        // }
     }
     public void stopgame(){
         Application.Quit();
