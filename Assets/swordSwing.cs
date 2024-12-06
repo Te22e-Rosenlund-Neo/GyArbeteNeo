@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class swordSwing : MonoBehaviour
 {
-    private float AliveTime = 1;
+    private float AliveTime = 0.8f;
     private Transform player;
     void Start()
     {
@@ -27,9 +27,11 @@ public class swordSwing : MonoBehaviour
     {
         if(other.CompareTag("Slime")){
             other.transform.GetComponent<Slime>().hp -= 1;
+            Destroy(gameObject);
         }
         if(other.CompareTag("Skelly")){
             other.transform.GetComponent<Skeleton>().hp -= 1;
+            Destroy(gameObject);
         }
     }
 }
