@@ -55,7 +55,7 @@ public class jumptest : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, MoveDirection*MoveSpeed*disabledMove);
  
         if(HP <= 0){
-            transform.position = new Vector3(4.319687f, 15f, -0.06f);
+            transform.position = new Vector3(4.319687f, 6f, -0.06f);
             HP += 2;
         }
     }
